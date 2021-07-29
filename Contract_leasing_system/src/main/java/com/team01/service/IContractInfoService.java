@@ -14,13 +14,15 @@ public interface IContractInfoService {
     public int deleteContractInfo(int contractId);
 
     //根据合同编号修改合同信息
-    public void updateContractInfo(int contractId);
+    public int updateContractInfo(ContractInfo contractInfo);
 
     //根据合同编号查询合同信息
     public ContractInfo queryContractInfo(int contractId);
 
     //查询所有合同信息
     public List<ContractInfo> queryAllContactInfo();
+
+    public int getListCount();
 
 
 }

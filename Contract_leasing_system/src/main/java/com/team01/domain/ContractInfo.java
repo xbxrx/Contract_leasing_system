@@ -4,11 +4,25 @@ public class ContractInfo {
     private int contractId;
     private String contractName;
     private String partyA;
-    private String PartyB;
+    private String partyB;
     private String startTime;
     private String deadline;
     private double rent;
 
+
+    public ContractInfo(){
+
+    }
+
+    public ContractInfo(String contractName, String partyA, String partyB, String startTime,
+            String deadline, double rent){
+        this.contractName=contractName;
+        this.partyA=partyA;
+        this.partyB=partyB;
+        this.startTime=startTime;
+        this.deadline=deadline;
+        this.rent=rent;
+    }
     public double getRent() {
         return rent;
     }
@@ -30,7 +44,7 @@ public class ContractInfo {
     }
 
     public String getPartyB() {
-        return PartyB;
+        return partyB;
     }
 
     public String getStartTime() {
@@ -54,7 +68,7 @@ public class ContractInfo {
     }
 
     public void setPartyB(String partyB) {
-        PartyB = partyB;
+        this.partyB = partyB;
     }
 
     public void setRent(double rent) {
@@ -64,4 +78,5 @@ public class ContractInfo {
     public void setStartTime(String startTime) {
         this.startTime = startTime;
     }
+
 }

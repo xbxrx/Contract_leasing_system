@@ -15,15 +15,21 @@
     <insert id="addContractInfo" parameterType="com.team01.domain.ContractInfo">
         insert into contractinfo(contractName,partyA,partyB,startTime,deadline,rent) VALUE
             (#{contractName},#{partyA},#{partyB},#{startTime},#{deadline},#{rent})
-
     </insert>
 
     <delete id="deleteContractInfo">
-        
+        delete from contractinfo where contractId=#{contractId}
     </delete>
 
+    <update id="updateContractInfo" parameterType="com.team01.domain.ContractInfo">
+        update contractinfo
+        set contractName=#{contractName},partyA=#{partyA},partyB=#{partyB},startTime=#{startTime},deadline=#{deadline},
+            rent=#{rent}
+        where contractId=#{contractId}
+    </update>
 
-
-
+    <select id="getListCount" resultType="int">
+        SELECT COUNT(contractId) FROM contractinfo
+    </select>
 
 </mapper>

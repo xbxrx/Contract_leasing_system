@@ -7,10 +7,7 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 
-  <!--配置首页-->
-  <!--<welcome-file-list>-->
-  <!--<welcome-file>login.jsp</welcome-file>-->
-  <!--</welcome-file-list>-->
+
 
   <!--<listener>-->
   <!--<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>-->
@@ -30,6 +27,7 @@
       <param-name>contextConfigLocation</param-name>
       <param-value>classpath:spring/spring-*.xml</param-value>
     </init-param>
+
     <!-- 表示容器在启动时立即加载Servlet -->
     <load-on-startup>1</load-on-startup>
   </servlet>

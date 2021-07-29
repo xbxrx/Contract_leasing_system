@@ -30,17 +30,32 @@ public class ContractTest {
     @Test
     public void insertContractTest(){
         ContractInfo contractInfo=new ContractInfo();
-        contractInfo.setContractName("微服务租赁合同");
-        contractInfo.setPartyA("代先生");
+        contractInfo.setContractName("人工智能服务租赁合同");
+        contractInfo.setPartyA("龙先生");
         contractInfo.setPartyB("华迪公司");
-        contractInfo.setStartTime("2021-5-6");
+        contractInfo.setStartTime("2021-1-26");
         contractInfo.setDeadline("2021-8-6");
-        contractInfo.setRent(2421);
+        contractInfo.setRent(2761);
         iContractInfoService.addContractInfo(contractInfo);
     }
 
     @Test
     public void deleteContractTest(){
+        iContractInfoService.deleteContractInfo(6);
+
+    }
+
+    @Test
+    public void updateContractTest(){
+        ContractInfo contractInfo=new ContractInfo("租赁","钟先生","华迪公司","2020-5-1","2021-7-1",700);
+        contractInfo.setContractId(5);
+        iContractInfoService.updateContractInfo(contractInfo);
+
+    }
+
+    @Test
+    public void getListCountTest(){
+        System.out.println(iContractInfoService.getListCount());
 
     }
 

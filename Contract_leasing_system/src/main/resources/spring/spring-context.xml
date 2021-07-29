@@ -8,11 +8,11 @@
 
     <!-- 扫描service包下所有使用注解的类型 -->
     <!--<context:component-scan base-package="com.hwadee.service" />-->
-    <context:component-scan base-package="com.team01">
-        <!--只设置不扫描控制器-->
-        <context:exclude-filter type="annotation"
-                                expression="org.springframework.stereotype.Controller"></context:exclude-filter>
-    </context:component-scan>
+<!--    <context:component-scan base-package="com.team01">-->
+<!--        &lt;!&ndash;只设置不扫描控制器&ndash;&gt;-->
+<!--        <context:exclude-filter type="annotation"-->
+<!--                                expression="org.springframework.stereotype.Controller"></context:exclude-filter>-->
+<!--    </context:component-scan>-->
 
 
     <!-- 配置整合mybatis过程 -->

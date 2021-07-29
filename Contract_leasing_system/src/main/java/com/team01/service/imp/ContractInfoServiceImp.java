@@ -30,8 +30,8 @@ public class ContractInfoServiceImp implements IContractInfoService {
     }
 
     @Override
-    public void updateContractInfo(int contractId) {
-//        iContractInfoDao.updateContractInfo(contractId);
+    public int updateContractInfo(ContractInfo contractInfo) {
+        return iContractInfoDao.updateContractInfo(contractInfo);
 
     }
 
@@ -46,4 +46,10 @@ public class ContractInfoServiceImp implements IContractInfoService {
         List<ContractInfo> infos= iContractInfoDao.queryAllContractInfo();
         return infos;
     }
+
+    @Override
+    public int getListCount() {
+        return iContractInfoDao.getListCount();
+    }
+
 }
