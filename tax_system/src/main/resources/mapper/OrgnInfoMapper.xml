@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hwadee.dao.IOrgnInfoDao">
+    <resultMap type="OrgnInfo" id="paperResultMap">
+        <id property="orgnId" column="orgn_id"/>
+        <result property="orgnLevel" column="orgn_level"/>
+        <result property="approvalCreateTime" column="approval_create_time"/>
+        <result property="adminRank" column="admin_rank"/>
+        <result property="orgnType" column="orgn_type"/>
+        <result property="areaName" column="area_name"/>
+        <result property="orgnName" column="orgn_name"/>
+        <result property="approvalCreateFileNumber" column="approval_create_file_number"/>
+        <result property="approvalDepartment" column="approval_department"/>
+        <result property="address" column="address"/>
+        <result property="postcode" column="postcode"/>
+    </resultMap>
+
+    <insert id="addOrgnInfo" parameterType="OrgnInfo">
+        INSERT INTO orgn_info(orgn_id,orgn_level,approval_create_time,
+        admin_rank,orgn_type,area_name,orgn_name,approval_create_file_number,approval_department,
+        address,postcode) VALUE (#{orgnId},#{orgnLevel}, #{approvalCreateTime}, #{adminRank},
+        #{orgnType}, #{areaName}, #{orgnName},#{approvalCreateFileNumber},
+        #{approvalDepartment}, #{address}, #{postcode})
+    </insert>
+
+    <delete id="deleteOrgnInfoById" parameterType="int">
+        DELETE FROM orgn_info WHERE orgn_id=#{orgnId}
+    </delete>
+
+    <update id="updateOrgnInfo" parameterType="OrgnInfo">
+        UPDATE orgn_info
+        SET orgn_level = #{orgnLevel},approval_create_time = #{approvalCreateTime},
+        admin_rank = #{adminRank},orgn_type = #{orgnType},area_name = #{areaName},
+        orgn_name = #{orgnName},approval_create_file_number = #{approvalCreateFileNumber},
+        approval_department = #{approvalDepartment},address = #{address},postcode = #{postcode}
+        WHERE orgn_id = #{orgnId}
+    </update>
+
+    <select id="queryOrgnInfoById" resultType="OrgnInfo" parameterType="int">
+        SELECT orgn_id,orgn_level,approval_create_time,
+        admin_rank,orgn_type,area_name,orgn_name,approval_create_file_number,approval_department,
+        address,postcode
+        FROM orgn_info
+        WHERE orgn_id=#{orgnId}
+    </select>
+
+    <select id="queryAllOrgnInfo" resultMap="paperResultMap">
+        SELECT orgn_id,orgn_level,approval_create_time,
+        admin_rank,orgn_type,area_name,orgn_name,approval_create_file_number,approval_department,
+        address,postcode
+        FROM orgn_info
+    </select>
+
+</mapper>

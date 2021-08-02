@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:content="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <content:component-scan base-package="com.hwadee"/>
+
+
+    <!-- 1配置数据源 -->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <!--数据库驱动 -->
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+        <!--连接数据库的url -->
+        <property name="url" value="jdbc:mysql://localhost:3306/cqyddx?serverTimezone=UTC"/>
+        <!--连接数据库的用户名 -->
+        <property name="username" value="root"/>
+        <!--连接数据库的密码 -->
+        <property name="password" value="123456"/>
+    </bean>
+
+    <!--配置JdbcTemplate-->
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+
+
+    <!-- 配置注解驱动 -->
+    <mvc:annotation-driven/>
+
+    <mvc:resources location="/js/" mapping="/js/**"></mvc:resources>
+    <mvc:resources location="/css/" mapping="/css/**"></mvc:resources>
+    <mvc:resources location="/img/" mapping="/img/**"></mvc:resources>
+    <mvc:resources location="/lang/" mapping="/lang/**"></mvc:resources>
+    <mvc:resources location="/umeditor/" mapping="/umeditor/**"></mvc:resources>
+
+    <!-- 视图解析器 -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/pages/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+</beans>
